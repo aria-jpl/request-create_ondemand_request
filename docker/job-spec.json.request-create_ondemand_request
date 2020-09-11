@@ -28,6 +28,10 @@
     {
       "name": "program_pi_id",
       "destination": "context"
+    },
+    {
+      "name": "machine_tags",
+      "destination": "context"
     }
   ]
 }

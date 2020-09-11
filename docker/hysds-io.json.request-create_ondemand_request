@@ -29,6 +29,11 @@
       "name": "program_pi_id",
       "from": "submitter",
       "type": "text"
+    },
+    {
+      "name": "machine_tags",
+      "from": "submitter",
+      "type": "text"
     }
   ]
 }
