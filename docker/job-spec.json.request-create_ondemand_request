@@ -10,10 +10,6 @@
   "time_limit": 1200,
   "params" : [
     {
-      "name": "name",
-      "destination": "context"
-    },
-    {
       "name": "request_id",
       "destination": "context"
     },

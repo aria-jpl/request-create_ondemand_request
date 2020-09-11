@@ -29,7 +29,7 @@ def main():
 
 def build_ds(context, ds):
     '''generates on-demand request dataset json from the context inputs'''
-    name = context['name']
+    #name = context['name']
     #aoi_type = validate_type(context['type'])
     #label = generate_label(context['name'], aoi_type)
     #project = context['account']
@@ -46,10 +46,11 @@ def build_ds(context, ds):
     program_pi_id = context['program_pi_id']
 
     # from spec doc: request-s1gunw-<start time>-<end time>-<aoi name>-<username>-<timestamp of request>
-    timeStampString = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
+    #timeStampString = datetime.now().strftime('%Y-%m-%dT%H:%M:%S.%f')
     #print(timeStampString)
     #print(str(datetime.now()))
-    label = "{}-{}-{}".format(name, group_id, timeStampString)
+    #label = "{}-{}-{}".format(name, group_id, timeStampString)
+    label = context["request_id"]
 
     #save to ds object
     ds['label'] = label
@@ -103,12 +104,14 @@ def parse_additional_metadata(additional_met, met):
         met['event_metadata'] = additional_met['event_metadata']
     return met
 
+"""
 def generate_label(label, aoi_type):
     '''validates the aoi name, appending an AOI_ if necessary'''
     label = re.sub(r"[^a-zA-Z0-9_]+", '', label.replace(' ', '_'))
     if label.startswith('AOI_'):
         label = label.lstrip('AOI_')
     return 'AOI_{0}_{1}'.format(aoi_type, label)
+"""
 
 def validate_type(aoi_type):
     '''simply strips non-chars/ints & replaces spaces with underscore'''
@@ -247,6 +250,7 @@ def generate_kml(base_path):
     gdal_cmd = 'gdal2tiles.py -p mercator {} -z 2-8 -k {}'.format(input_file, output_dir)
     os.system(gdal_cmd)
 
+"""
 def send_fail_email(error):
     '''sends email marking failure of aoi creation'''
     error = str(error).strip('"')
@@ -312,6 +316,7 @@ def send_email(send_to, subject, body):
     smtp_obj = smtplib.SMTP(get_container_host_ip())
     smtp_obj.sendmail(sender, send_to, msg.as_string())
     smtp_obj.quit()
+"""
 
 def get_hostname():
     '''Get hostname.'''
