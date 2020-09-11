@@ -1,0 +1,37 @@
+{
+  "recommended_queues":["factotum-job_worker-small", "factotum-job_worker-large", "factotum-create_ondemand_request-queue"],
+  "command":"/home/ops/verdi/ops/create_ondemand_request/run.sh",
+  "imported_worker_files": {
+    "/home/ops/.netrc": "/home/ops/.netrc",
+    "/home/ops/.aws": "/home/ops/.aws"
+  },
+  "disk_usage":"3GB",
+  "soft_time_limit": 300,
+  "time_limit": 1200,
+  "params" : [
+    {
+      "name": "name",
+      "destination": "context"
+    },
+    {
+      "name": "request_id",
+      "destination": "context"
+    },
+    {
+      "name": "enumeration_list",
+      "destination": "context"
+    },
+    {
+      "name": "geojson_polygon",
+      "destination": "context"
+    },
+    {
+      "name": "group_id",
+      "destination": "context"
+    },
+    {
+      "name": "program_pi_id",
+      "destination": "context"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "label" : "Create On-demand Request",
+  "submission_type":"individual",
+  "component" : "tosca",
+  "allowed_accounts": [ "ops" ],  
+  "params" : [
+    {
+      "name": "name",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "request_id",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "enumeration_list",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "geojson_polygon",
+      "from": "submitter",
+      "type": "region",
+      "placeholder": "spatial bounds as a geojson"
+    },
+    {
+      "name": "group_id",
+      "from": "submitter",
+      "type": "text"
+    },
+    {
+      "name": "program_pi_id",
+      "from": "submitter",
+      "type": "text"
+    }
+  ]
+}
